@@ -14,7 +14,7 @@ public class ToDoController {
 
     private final ToDoService toDoService;
 
-    @GetMapping("/todo/")
+    @GetMapping("/todo")
     public String todoList(Model model) {
         model.addAttribute("todolist", toDoService.toDoList());
         return "todo-list";
@@ -28,12 +28,12 @@ public class ToDoController {
     }
 
     @PostMapping("/todo/create/")
-    public String addToDo(@Valid ToDo task, BindingResult result, Model model) {
+    public String addToDo(@ModelAttribute("todo") @Valid ToDo todo, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
-            return "todo-form.jsp";
+            return "todo-form";
         }
-        toDoService.addToDo(task);
+        toDoService.addToDo(todo);
         model.addAttribute("todolist", toDoService.toDoList());
         return "redirect:/todo";
     }
@@ -41,15 +41,16 @@ public class ToDoController {
     @GetMapping("/todo/update/{id}")
     public String update(Model model, @PathVariable Long id) {
         model.addAttribute("todo", toDoService.getToDoById(id));
+
         return "todo-update-form";
     }
 
     @PostMapping("/todo/adjust/{id}")
-    public String updateToDo(@Valid ToDo task, @PathVariable Long id, BindingResult result) {
+    public String updateToDo(@ModelAttribute("todo") @Valid ToDo todo, @PathVariable Long id, BindingResult result) {
         if (result.hasErrors()) {
-            return "error";
+            return "todo-update-form";
         }
-        toDoService.updateToDo(id, task);
+        toDoService.updateToDo(id, todo);
         return "redirect:/todo";
     }
 

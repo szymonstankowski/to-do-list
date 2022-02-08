@@ -16,10 +16,8 @@ public class ToDo {
 
 
     private Long id;
-    @NotNull
     @NotBlank(message = "Text is mandatory")
     private String text;
-    @NotNull
     @NotBlank(message = "Status is mandatory")
     private String status;
 

@@ -17,17 +17,18 @@
 <hr>
 
 <form:form method="post" action="/todo/create/" modelAttribute="todo" id="todoform">
-    Text: <form input path="text" id="text" /><br/><br/>
-           <form:errors path="text" />
-    <form:select name="status" id="state" form="todoform">
+    Text: <form:input path="text"/>
+          <form:errors path="text"/><br/><br/>
+    <form:select path="status" id="state" form="todoform">
       <option value="inProgress">inProgress</option>
       <option value="complete">complete</option>
-    </select>
+    </form:select>
 
     <br/>
     <input type="submit" id="submit" value="Add TODO">
     <br/><br/><br/>
 </form:form>
+
 
 
 </body>

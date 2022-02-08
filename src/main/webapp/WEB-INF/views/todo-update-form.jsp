@@ -15,8 +15,8 @@
 
 <form:form method="post" action="/todo/adjust/${todo.id}" modelAttribute="todo" id="todoupdateform">
 
-    Text: <form:input path="text"/><br/><br/>
-
+    Text: <form:input path="text"/>
+          <form:errors path="text"/><br/><br/>
     <select name="status" id="state" form="todoupdateform">
       <option value="inProgress">inProgress</option>
       <option value="complete">complete</option>
