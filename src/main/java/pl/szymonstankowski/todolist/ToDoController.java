@@ -45,12 +45,12 @@ public class ToDoController {
         return "todo-update-form";
     }
 
-    @PostMapping("/todo/adjust/{id}")
-    public String updateToDo(@ModelAttribute("todo") @Valid ToDo todo, @PathVariable Long id, BindingResult result) {
+    @PostMapping("/todo/adjust/")
+    public String updateToDo(@ModelAttribute("todo") @Valid ToDo todo, BindingResult result) {
         if (result.hasErrors()) {
             return "todo-update-form";
         }
-        toDoService.updateToDo(id, todo);
+        toDoService.updateToDo(todo.getId(), todo);
         return "redirect:/todo";
     }
 

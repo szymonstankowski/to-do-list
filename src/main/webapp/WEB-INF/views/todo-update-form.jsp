@@ -13,7 +13,7 @@
 <a href="/todo">TODO LIST</a><br/><br/>
 <hr>
 
-<form:form method="post" action="/todo/adjust/${todo.id}" modelAttribute="todo" id="todoupdateform">
+<form:form method="post" action="/todo/adjust/" modelAttribute="todo" id="todoupdateform">
 
     Text: <form:input path="text"/>
           <form:errors path="text"/><br/><br/>
