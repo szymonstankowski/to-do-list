@@ -11,17 +11,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class AppConfig implements WebMvcConfigurer {
 
 
-    @Bean
-    public MessageSource messageSource(){
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath:validationMessages");
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
-    }
-    @Bean
-    public LocalValidatorFactoryBean validator(){
-        LocalValidatorFactoryBean lvfb = new LocalValidatorFactoryBean();
-        lvfb.setValidationMessageSource(messageSource());
-        return lvfb;
-    }
+//    @Bean
+//    public MessageSource messageSource(){
+//        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+//        messageSource.setBasename("classpath:validationMessages");
+//        messageSource.setDefaultEncoding("UTF-8");
+//        return messageSource;
+//    }
+//    @Bean
+//    public LocalValidatorFactoryBean validator(){
+//        LocalValidatorFactoryBean lvfb = new LocalValidatorFactoryBean();
+//        lvfb.setValidationMessageSource(messageSource());
+//        return lvfb;
+//    }
 }
